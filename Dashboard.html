@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="Style.css">
+    <!--<link rel="stylesheet" type="text/css" href="Style.css">-->
 
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,17 +19,17 @@
         <h1>Welcome to CentiSoft</h1>
         <h2>This is version 1.0 aka "A Work In Progress"</h2>
     </header>
-<nav>
-    <ul>
-<li><a href="Developers.html">Developers</a></li>
-<ul>
-    <li><a href="DevelopersCreate.html">Create Developer</a></li>
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Developers<span class="caret"></span></a></li>
+<ul class="dropdown-menu">
+    <li><a  href="DevelopersCreate.html">Create Developer</a></li>
     <li><a href="DevelopersRead.html">Find Developer</a></li>
     <li><a href="DevelopersUpdate.html">Update Developer</a></li>
     <li><a href="DevelopersDelete.html">Delete Developer</a></li>
 </ul>
-<li><a href="Projects.html">Projects</a></li>
-<ul>
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Projects.html">Projects</a></li>
+<ul class="dropdown-menu">
     <li><a href="ProjectCreateProject.html">Create Project</a></li>
     <li><a href="ProjectShowProject.html">Show Project</a></li>
     <li><a href="ProjectUpdateProject.html">Update Project</a></li>
@@ -37,8 +37,8 @@
     <li><a href="ProjectCreateTask.html">Create Task</a></li>
     <li><a href="ProjectShowTask.html">Show Task</a></li>
 </ul>
-<li><a href="Customers.html">Customers</a></li>
-<ul>
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Customers.html">Customers</a></li>
+<ul class="dropdown-menu">
     <li><a href="CustomerCreate.html">Create Developer</a></li>
     <li><a href="CustomerRead.html">Find Developer</a></li>
     <li><a href="CustomerUpdate.html">Update Developer</a></li>

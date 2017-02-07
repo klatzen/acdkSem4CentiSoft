@@ -13,14 +13,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Centisoft - Time Registration / Customers</title>
+    <script> 
+$(function(){
+  $("#header").load("Nav.html"); 
+});
+</script> 
 </head>
 <body>
-    <header>
-        <h1>Customers - Find Customer</h1>
+
+<div id="header"></div>
+<header>
+        <h2>Customers - Find Customer</h2>
     </header>
-<nav>
-<li><a href="Customers.html">Customers</a></li>
-</nav>
 
 <form onSubmit="">
         <label for="ID">Enter ID:</label>

@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
         <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -12,44 +13,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Centisoft - Time Registration / Dashboard</title>
+    <script> 
+$(function(){
+  $("#header").load("Nav.html"); 
+});
+</script> 
 </head>
 <body>
     <header>
         <h1>Welcome to CentiSoft</h1>
-        <h2>This is version 1.0 aka "A Work In Progress"</h2>
     </header>
-
-<nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav">
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Developers<span class="caret"></span></a>
-<ul class="dropdown-menu">
-    <li><a href="DevelopersCreate.html">Create Developer</a></li>
-    <li><a href="DevelopersRead.html">Find Developer</a></li>
-    <li><a href="DevelopersUpdate.html">Update Developer</a></li>
-    <li><a href="DevelopersDelete.html">Delete Developer</a></li>
-</ul>
-</li>
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Projects.html">Projects</a>
-<ul class="dropdown-menu">
-    <li><a href="ProjectCreateProject.html">Create Project</a></li>
-    <li><a href="ProjectShowProject.html">Show Project</a></li>
-    <li><a href="ProjectUpdateProject.html">Update Project</a></li>
-    <li><a href="ProjectDeleteProject.html">Update Project</a></li>
-    <li><a href="ProjectCreateTask.html">Create Task</a></li>
-    <li><a href="ProjectShowTask.html">Show Task</a></li>
-</ul>
-</li>
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Customers.html">Customers</a>
-<ul class="dropdown-menu">
-    <li><a href="CustomerCreate.html">Create Developer</a></li>
-    <li><a href="CustomerRead.html">Find Developer</a></li>
-    <li><a href="CustomerUpdate.html">Update Developer</a></li>
-    <li><a href="CustomerDelete.html">Delete Developer</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-
+        <div id="header"></div>
+        <h2>This is version 1.2.1 aka "A Work In Progress"</h2>
 
 </body>
 

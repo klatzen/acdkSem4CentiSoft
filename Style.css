@@ -7,18 +7,6 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 
-nav {
-    background-color: grey;
-    text-align: left;
-    color: white;
-    width: 20%;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    border-radius: 5px;
-
-    
-}
-
 a:hover {
     color: dimgrey;
 }

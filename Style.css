@@ -1,0 +1,28 @@
+
+body {
+    background-color: linen;
+    color: darkslategrey;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+nav {
+    background-color: grey;
+    text-align: left;
+    color: white;
+    width: 20%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+
+    
+}
+
+a:hover {
+    color: dimgrey;
+}
+
+a:link {
+    color: white;
+}

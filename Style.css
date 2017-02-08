@@ -14,3 +14,7 @@ a:hover {
 a:link {
     color: white;
 }
+#logo{
+display: block;
+    margin: auto;
+}

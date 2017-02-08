@@ -1,45 +1,46 @@
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="Style.css">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="Style.css">
 
-       <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>Centisoft - Time Registration / Project</title>
-    <script> 
+  <title>Centisoft - Time Registration / Project</title>
+  <script> 
 $(function(){
   $("#header").load("Nav.html"); 
 });
-</script> 
+</script>
 </head>
+
 <body>
-    
-<div id="header"></div>
 
-<header>
-        <h2>Project - Show Project</h2>
-    </header>
-        <form onSubmit="">
-        <label for="ID">Enter ID:</label>
-        <input type="text" name="ID">
-        
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset"><br><br>
-        </form>
+  <div id="header"></div>
 
-        <p id="projectInformation">
-        ID:<br>
-        Name:<br>
-        Due Date:<br>
-        Customer ID:<br>
-        </p>
-        
+  <header>
+    <h2>Show Project</h2>
+  </header>
+  <form onSubmit="">
+    <label for="ID">Enter ID:</label>
+    <input type="text" name="ID">
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset"><br><br>
+  </form>
+
+  <p id="projectInformation">
+    ID:<br> Name:
+    <br> Due Date:<br> Customer ID:<br>
+  </p>
+
 </body>
+
 </html>

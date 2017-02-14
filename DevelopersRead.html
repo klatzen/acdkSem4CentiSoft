@@ -13,12 +13,12 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="DeveloperScript.js"></script>
     <title>Centisoft - Time Registration / Developers</title>
     <script>
         $(function () {
             $("#header").load("Nav.html");
         });
-
     </script>
 </head>
 
@@ -30,18 +30,25 @@
         <h2>Find Developer</h2>
     </header>
 
-    <form onSubmit="">
+    <form onSubmit="findDeveloperFunc(); return false">
         <label for="ID">Enter ID:</label>
-        <input type="text" name="ID">
+        <input id="findDeveloperIDInput" type="text" name="ID">
 
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"><br><br>
     </form>
 
-    <p id="taskInformation">
-        ID:<br> Name:
-        <br> Email:
-        <br>
-    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Name:</th>
+                <th>Email:</th>
+            </tr>
+        </thead>
+            <tbody id="showDeveloperTBody">
+
+            </tbody>
+    </table>
 
 </html>

@@ -2,7 +2,7 @@ function findCustomerFunc() {
     var oReq = new XMLHttpRequest();
     var id = document.getElementById("findCustomerIDInput").value;
     oReq.addEventListener("load", showCustomer);
-    oReq.open("GET", "http://www.centisoft.dk/api/customer/" + id);
+    oReq.open("GET", "http://www.centisoft.dk/api/Customer/" + id);
     oReq.send();
 }
 

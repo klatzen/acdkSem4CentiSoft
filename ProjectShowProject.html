@@ -28,16 +28,17 @@ $(function(){
   <header>
     <h2>Show Project</h2>
   </header>
-  <form onSubmit="">
+  <form onSubmit="findProjectOnID(); return false">
     <label for="ID">Enter ID:</label>
     <input ID="idField" type="text" name="ID">
 
     <input ID="projectSubmit" type="submit" value="Submit">
     <input type="reset" value="Reset"><br>
   </form>
-  <p>
+  
+    <form onSubmit="findProjects(); return false">
   <button id="loadAll">Load All Projects</button>
-  </p>
+    </form>
 
   <table class="ProjectTable">
     <thead>
@@ -50,7 +51,7 @@ $(function(){
     </tbody>
   </table>
 
-  <script src="ShowProject.js"></script>
+  <script src="ProjectScript.js"></script>
 
   <!--<p id="projectInformation">
     ID:<br> Name:

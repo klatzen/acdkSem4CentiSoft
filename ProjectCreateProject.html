@@ -28,8 +28,8 @@ $(function(){
     <h2>Create Project</h2>
   </header>
 
-  <form onSubmit="">
-    <label ID="idLabel" for="id">ID:</label>
+  <form onSubmit="InsertProject(); return false">
+    <label for="id">ID:</label>
     <input id="id" type="text" name="id" required>
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" required>
@@ -40,7 +40,7 @@ $(function(){
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">
   </form>
-<script src="CreateProject.js"></script>
+<script src="ProjectScript.js"></script>
 </body>
 
 </html>

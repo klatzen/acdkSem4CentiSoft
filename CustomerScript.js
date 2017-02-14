@@ -58,22 +58,24 @@ function showCustomer() {
     element.appendChild(rowElement);
 }
 
-function InsertDeveloperFunc() {
+function InsertCustomerFunc() {
     var oReq = new XMLHttpRequest();
-    var parameters = {"Name": document.getElementById("name"), "Email": document.getElementById("email") };
+    var element = document.getElementById("CustomerForm").elements;
+    var parameters = {"Name": element.Name, "Address": element.Address, "Address2": element.Address2,"Zip": element.Zip, "City":element.City, "Country":element.Country, "Email":element.Email, "Phone":element.Phone,"ClientId":element.ClientId,"Projects":element.Projects};
     var jsonParam = JSON.stringify(parameters);
     oReq.addEventListener("load", RequestMsg);
-    oReq.open("POST", "http://centisoft.dk/api/Developer/");
+    oReq.open("POST", "http://centisoft.dk/api/Customer/");
     oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     oReq.send(jsonParam);
 }
 
-function UpdateDeveloperFunc() {
+function UpdateCustomerFunc() {
     var oReq = new XMLHttpRequest();
-    var parameters = {"Id": document.getElementById("id"), "Name": document.getElementById("name"), "Email": document.getElementById("email") };
+    var element = document.getElementById("CustomerForm").elements;
+    var parameters = {"Id":element.id, "Name": element.Name, "Address": element.Address, "Address2": element.Address2,"Zip": element.Zip, "City":element.City, "Country":element.Country, "Email":element.Email, "Phone":element.Phone,"ClientId":element.ClientId,"Projects":element.Projects};
     var jsonParam = JSON.stringify(parameters);
     oReq.addEventListener("load", RequestMsg);
-    oReq.open("PUT", "http://centisoft.dk/api/Developer/");
+    oReq.open("PUT", "http://centisoft.dk/api/Customer/");
     oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     oReq.send(jsonParam);
 }

@@ -13,6 +13,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="DeveloperScript.js"></script>
   <title>Centisoft - Time Registration / Developers</title>
   <script> 
 $(function(){
@@ -29,7 +30,7 @@ $(function(){
     <h2>Update Developer</h2>
   </header>
 
-  <form onSubmit="">
+  <form onSubmit="UpdateDeveloperFunc(); return false">
     <label for="id">ID:</label>
     <input id="id" type="text" name="id" required>
     <label for="name">Name:</label>

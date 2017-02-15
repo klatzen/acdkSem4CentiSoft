@@ -6,17 +6,16 @@ function findDeveloperFunc() {
     oReq.send();
 }
 
-function showDeveloper() {
-    var developerList = JSON.parse(this.responseText);
+function showDeveloper(data) {
     var element = document.getElementById("showDeveloperTBody");
     element.innerHTML = "";
     var rowElement = document.createElement("tr");
     var firstColumn = document.createElement("td");
     var secondColumn = document.createElement("td");
     var thirdColumn = document.createElement("td");
-    var firstColumnText = document.createTextNode(developerList[0].Id);
-    var secondColumnText = document.createTextNode(developerList[0].Name);
-    var thirdColumnText = document.createTextNode(developerList[0].Email);
+    var firstColumnText = document.createTextNode(data.Id);
+    var secondColumnText = document.createTextNode(data.Name);
+    var thirdColumnText = document.createTextNode(data.Email);
     rowElement.appendChild(firstColumn);
     rowElement.appendChild(secondColumn);
     rowElement.appendChild(thirdColumn);

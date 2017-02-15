@@ -33,6 +33,22 @@
 
     <label for="id">ID:</label>
     <input id="id" type="text"></input>
-    <button type="button" onclick="DeleteDeveloper()">Delete</button>
+    <button id="deleteDeveloperButton" type="button">Delete</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#deleteDeveloperButton").click(function(){
+              var id = $("#id").val();
+                $.ajax({
+                  url: 'http://www.centisoft.dk/api/developer/',
+                  type: "DELETE",
+                  data: {Id: id},
+                  success: function(){alert("done")}
+                })
+            })
+        });
+    </script>
+
+    </body>
 
 </html>

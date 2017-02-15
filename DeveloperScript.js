@@ -16,26 +16,3 @@ function showDeveloper(data) {
     thirdColumn.appendChild(thirdColumnText);
     element.appendChild(rowElement);
 }
-
-function UpdateDeveloperFunc() {
-    var oReq = new XMLHttpRequest();
-    var parameters = {"Id": document.getElementById("id"), "Name": document.getElementById("name"), "Email": document.getElementById("email") };
-    var jsonParam = JSON.stringify(parameters);
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("PUT", "http://centisoft.dk/api/Developer/");
-    oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    oReq.send(jsonParam);
-}
-
-function DeleteDeveloper(){
-    var oReq = new XMLHttpRequest();
-    var id = document.getElementById("id").value;
-
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("DELETE", "http://centisoft.dk/api/Developer/" + id);
-    oReq.send();
-}
-
-function RequestMsg() {
-    alert("Success!");
-}

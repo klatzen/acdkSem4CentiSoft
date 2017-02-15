@@ -54,7 +54,8 @@
     <script>
         $(document).ready(function(){
             $("#findDeveloperSubmit").click(function(){
-                $.get("http://www.centisoft.dk/api/developer/").done(function(data){showDeveloper(data)});
+                var id = $("#findDeveloperIDInput").val();
+                $.get("http://www.centisoft.dk/api/developer/", {Id: id}).done(function(data){showDeveloper(data)});
             })
         })
     </script>

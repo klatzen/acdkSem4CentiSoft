@@ -1,11 +1,3 @@
-function findDeveloperFunc() {
-    var oReq = new XMLHttpRequest();
-    var id = document.getElementById("findDeveloperIDInput").value;
-    oReq.addEventListener("load", showDeveloper);
-    oReq.open("GET", "http://www.centisoft.dk/api/developer/" + id);
-    oReq.send();
-}
-
 function showDeveloper(data) {
     var element = document.getElementById("showDeveloperTBody");
     element.innerHTML = "";
@@ -23,16 +15,6 @@ function showDeveloper(data) {
     secondColumn.appendChild(secondColumnText);
     thirdColumn.appendChild(thirdColumnText);
     element.appendChild(rowElement);
-}
-
-function InsertDeveloperFunc() {
-    var oReq = new XMLHttpRequest();
-    var parameters = {"Name": document.getElementById("name"), "Email": document.getElementById("email") };
-    var jsonParam = JSON.stringify(parameters);
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("POST", "http://centisoft.dk/api/Developer/");
-    oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    oReq.send(jsonParam);
 }
 
 function UpdateDeveloperFunc() {

@@ -30,15 +30,31 @@ $(function(){
     <h2>Update Developer</h2>
   </header>
 
-  <form onSubmit="UpdateDeveloperFunc(); return false">
+  <form onSubmit="return false">
     <label for="id">ID:</label>
     <input id="id" type="text" name="id" required>
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" required>
     <label for="email">Email:</label>
     <input id="email" type="text" name="email" required>
-    <input type="submit" value="Submit">
+    <input id="updateDeveloperSubmit" type="submit" value="Submit">
     <input type="reset" value="Reset">
   </form>
+
+  <script>
+        $(document).ready(function(){
+            $("#updateDeveloperSubmit").click(function(){
+              var id = $("#id").val();
+              var name = $("#name").val();
+              var email = $("#email").val();
+                $.ajax({
+                  url: 'http://www.centisoft.dk/api/developer/',
+                  type: "PUT",
+                  data: {Id: id, Name: name, Email: email},
+                  success: function(data){alert("done")}
+                })
+            })
+        });
+    </script>
 
 </html>

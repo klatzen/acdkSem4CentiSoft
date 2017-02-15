@@ -28,7 +28,7 @@
         <h2>Create Customer</h2>
     </header>
 
-    <form onSubmit="InsertCustomerFunc(); return false" id="CustomerForm">
+    <form onSubmit="return false">
         <label for="name">Name:</label>
         <input id="name" type="text" name="name" required>
         <label for="address">Address:</label>
@@ -47,8 +47,24 @@
         <input id="phone" type="text" name="phone" required>
         <label for="clientID">Client ID:</label>
         <input id="clientID" type="text" name="clientID" required>
-        <input type="submit" value="Submit">
+        <input id="createCustomerButton" type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
-
+    <script>
+        $(document).ready(function(){
+            $("#createCustomerButton").click(function(){
+              var name = $("#name").val();
+              var address = $("#address").val();
+              var address2 = $("#address2").val();
+              var zip = $("#zip").val();
+              var city = $("#city").val();
+              var country =$("#country").val();
+              var email = $("#email").val();
+              var phone = $("#phone").val();
+              var clientID = $("#clientID").val();
+                $.post("http://www.centisoft.dk/api/Customer/", {Name: name,Address: address,Address2:address2,Zip:zip,City:city,Country:country,Email: email,Phone:phone,ClientID:clientID}).done(function(data){alert("done")});
+            })
+        })
+    </script>
+</body>
 </html>

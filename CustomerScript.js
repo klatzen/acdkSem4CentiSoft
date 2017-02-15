@@ -1,13 +1,4 @@
-function findCustomerFunc() {
-    var oReq = new XMLHttpRequest();
-    var id = document.getElementById("findCustomerIDInput").value;
-    oReq.addEventListener("load", showCustomer);
-    oReq.open("GET", "http://www.centisoft.dk/api/Customer/" + id);
-    oReq.send();
-}
-
-function showCustomer() {
-    var customerList = JSON.parse(this.responseText);
+function showCustomer(data) {
     var element = document.getElementById("showCustomerTBody");
     element.innerHTML = "";
     var rowElement = document.createElement("tr");
@@ -22,17 +13,17 @@ function showCustomer() {
     var ninethColumn = document.createElement("td");
     var tenthColumn = document.createElement("td");
     var eleventhColumn = document.createElement("td");
-    var firstColumnText = document.createTextNode(customerList[0].Id);
-    var secondColumnText = document.createTextNode(customerList[0].Name);
-    var thirdColumnText = document.createTextNode(customerList[0].Address);
-    var fourthColumnText = document.createTextNode(customerList[0].Address2);
-    var fifthColumnText = document.createTextNode(customerList[0].Zip);
-    var sixthColumnText = document.createTextNode(customerList[0].City);
-    var seventhColumnText = document.createTextNode(customerList[0].Country);
-    var eighthColumnText = document.createTextNode(customerList[0].Email);
-    var ninethColumnText = document.createTextNode(customerList[0].Phone);
-    var tenthColumnText = document.createTextNode(customerList[0].ClientId);
-    var eleventhColumnText = document.createTextNode(customerList[0].Projects);
+    var firstColumnText = document.createTextNode(data.Id);
+    var secondColumnText = document.createTextNode(data.Name);
+    var thirdColumnText = document.createTextNode(data.Address);
+    var fourthColumnText = document.createTextNode(data.Address2);
+    var fifthColumnText = document.createTextNode(data.Zip);
+    var sixthColumnText = document.createTextNode(data.City);
+    var seventhColumnText = document.createTextNode(data.Country);
+    var eighthColumnText = document.createTextNode(data.Email);
+    var ninethColumnText = document.createTextNode(data.Phone);
+    var tenthColumnText = document.createTextNode(data.ClientId);
+    var eleventhColumnText = document.createTextNode(data.Projects);
     rowElement.appendChild(firstColumn);
     rowElement.appendChild(secondColumn);
     rowElement.appendChild(thirdColumn);
@@ -56,39 +47,4 @@ function showCustomer() {
     tenthColumn.appendChild(tenthColumnText);
     eleventhColumn.appendChild(eleventhColumnText);
     element.appendChild(rowElement);
-}
-
-function InsertCustomerFunc() {
-    var oReq = new XMLHttpRequest();
-    var element = document.getElementById("CustomerForm").elements;
-    var parameters = {"Name": element.Name, "Address": element.Address, "Address2": element.Address2,"Zip": element.Zip, "City":element.City, "Country":element.Country, "Email":element.Email, "Phone":element.Phone,"ClientId":element.ClientId,"Projects":element.Projects};
-    var jsonParam = JSON.stringify(parameters);
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("POST", "http://centisoft.dk/api/Customer/");
-    oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    oReq.send(jsonParam);
-}
-
-function UpdateCustomerFunc() {
-    var oReq = new XMLHttpRequest();
-    var element = document.getElementById("CustomerForm").elements;
-    var parameters = {"Id":element.id, "Name": element.Name, "Address": element.Address, "Address2": element.Address2,"Zip": element.Zip, "City":element.City, "Country":element.Country, "Email":element.Email, "Phone":element.Phone,"ClientId":element.ClientId,"Projects":element.Projects};
-    var jsonParam = JSON.stringify(parameters);
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("PUT", "http://centisoft.dk/api/Customer/");
-    oReq.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    oReq.send(jsonParam);
-}
-
-function DeleteCustomer(){
-    var oReq = new XMLHttpRequest();
-    var id = document.getElementById("id").value;
-
-    oReq.addEventListener("load", RequestMsg);
-    oReq.open("DELETE", "http://centisoft.dk/api/Customer/" + id);
-    oReq.send();
-}
-
-function RequestMsg() {
-    alert("Success!");
 }

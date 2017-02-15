@@ -32,6 +32,19 @@
 
     <label for="id">ID:</label>
     <input id="id" type="text"></input>
-    <button type="button" onclick="DeleteCustomer()">Delete</button>
-
+    <button id="deleteCustomerButton">Delete</button>
+ <script>
+        $(document).ready(function(){
+            $("#deleteCustomerButton").click(function(){
+              var id = $("#id").val();
+                $.ajax({
+                  url: 'http://www.centisoft.dk/api/customer/',
+                  type: "DELETE",
+                  data: {Id: id},
+                  success: function(){alert("done")}
+                })
+            })
+        });
+    </script>
+</body>
 </html>

@@ -28,7 +28,7 @@ $(function(){
     <h2>Create Project</h2>
   </header>
 
-  <form onSubmit="InsertProject(); return false">
+  <form onsubmit="return false;">
     <label for="id">ID:</label>
     <input id="id" type="text" name="id" required>
     <label for="name">Name:</label>
@@ -37,9 +37,23 @@ $(function(){
     <input id="dueDate" type="text" name="dueDate" required>
     <label for="customerID">Customer ID:</label>
     <input id="customerID" type="text" name="customerID" required>
-    <input type="submit" value="Submit">
+    <input id="submitCreate" type="submit" value="Submit">
     <input type="reset" value="Reset">
   </form>
+
+  <script>
+  $(document).ready(function(){
+    $("#submitCreate").click(function(){
+      //var id = $("#id").val();
+      var name = $("#name").val();
+      var dueDate = $("#dueDate").val();
+      var customerID = $("#customerID").val();
+      $.post("http://www.centisoft.dk/api/Project/", {Name : name, DueDate : dueDate, CustomerId : customerID})
+      .done(function(data){alert("DONE")});
+    })
+  })
+  </script>
+  
 <script src="ProjectScript.js"></script>
 </body>
 

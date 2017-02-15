@@ -28,7 +28,7 @@ $(function(){
   <header>
     <h2>Show Project</h2>
   </header>
-  <form onSubmit="findProjectOnID(); return false">
+  <form onsubmit="return false;">
     <label for="ID">Enter ID:</label>
     <input ID="idField" type="text" name="ID">
 
@@ -36,7 +36,7 @@ $(function(){
     <input type="reset" value="Reset"><br>
   </form>
   
-    <form onSubmit="findProjects(); return false">
+    <form onsubmit="return false;">
   <button id="loadAll">Load All Projects</button>
     </form>
 
@@ -50,6 +50,22 @@ $(function(){
     <tbody ID="ProjectBody">
     </tbody>
   </table>
+
+  <script>
+  $(document).ready(function() {
+    $("#loadAll").click(function(){
+        $.get("http://www.centisoft.dk/api/Project").done(function(data){
+          showProjects(data)});
+    })
+
+    $("#projectSubmit").click(function(){
+      var id = $("#idField").val();
+      $.get("http://www.centisoft.dk/api/Project/",{Id : id}).done(function(data){showOneProject(data)});
+    })
+  })
+
+  </script>
+
 
   <script src="ProjectScript.js"></script>
 

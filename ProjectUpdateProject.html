@@ -29,7 +29,7 @@ $(function(){
     <h2>Update Project</h2>
   </header>
 
-  <form onSubmit="UpdateProject(); return false">
+  <form onsubmit="return false;">
     <label for="id">ID:</label>
     <input id="id" type="text" name="id" required>
     <label for="name">Name:</label>
@@ -38,11 +38,25 @@ $(function(){
     <!--<input id="description" type="text" name="description" required>-->
     <label for="dueDate">Due Date:</label>
     <input id="dueDate" type="date" name="dueDate" required>
-    <label for="customerID">CustomerID:</label>
-    <input id="customerID" type="text" name="customerID" required>
-    <input type="submit" value="Submit">
+    <input id="submitUpdate" type="submit" value="Submit">
     <input type="reset" value="Reset">
   </form>
+
+  <script>
+  $(document).ready(function(){
+    $("#submitUpdate").click(function(){
+      var name = $("#name").val();
+      var dueDate = $("#dueDate").val();
+      $.ajax({
+        url: 'http://www.centisoft.dk/api/Project/',
+        type: 'PUT',
+        data: {Name : name, DueDate : dueDate},
+        success: function(data){alert("DONE")}
+      })
+    })
+
+  });
+  </script>
   <script src="ProjectScript.js"></script>
 </body>
 

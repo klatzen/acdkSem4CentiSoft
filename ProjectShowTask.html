@@ -29,20 +29,45 @@
     <header>
         <h2>Show Task</h2>
     </header>
-    <form onSubmit="">
+    <form onsubmit="return false;">
         <label for="ID">Enter ID:</label>
-        <input type="text" name="ID">
-        <input type="submit" value="Search">
-        <input type="reset" value="Reset"><br><br>
+        <input id="projectIdField" type="text" name="ID" placeholder="Project ID">
+        <input id="taskIdField" type="text" name="ID" placeholder="Task ID">
+        <button id="taskSubmit" type="button">Search</button>
     </form>
 
-    <p id="taskInformation">
-        ID:<br> Name:
-        <br> Description:
-        <br> Created:
-        <br> Duration:
-        <br> Project ID:<br> Developer ID::<br>
-    </p>
+    <table class="taskTable">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Duration</th>
+            <th>Project ID</th>
+        </thead>
+        <tbody id="taskBody">
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            /*$("#taskSubmit").click(function(){
+                var projectId = $("#projectIdField").val();
+                var taskId = $("#taskIdField").val();
+                $.get("http://www.centisoft.dk/api/project/tasks", {ProjectId : projectId, id : taskId}).done(function(data){showTaskById(data)});
+            })*/
+
+            $("#taskSubmit").click(function(){
+                var projectId = $("#projectIdField").val();
+                var taskId = $("#taskIdField").val();
+                $.get("http://www.centisoft.dk/api/project/tasks",{Project : projectId, id : taskId}).done(function(data){showTaskById(data)});
+            })
+        })
+    </script>
+
+    <script src="ProjectScript.js"></script>
+
+
 
 </body>
 

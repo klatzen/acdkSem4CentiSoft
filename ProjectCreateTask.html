@@ -35,14 +35,12 @@ $(function(){
     <label for="description">Description:</label>
     <input id="description" type="text" name="description" required>
     <label for="created">Created:</label>
-    <input id="created" type="date" name="created" required>
+    <input id="created" type="date" name="created" required><br>
     <label for="duration">Duration:</label>
     <input id="duration" type="text" name="duration" required>
     <label for="projectID">Project ID:</label>
     <input id="projectID" type="text" name="projectID" required>
-    <label for="developerID">Developer ID:</label>
-    <input id="developerID" type="text" name="developerID" required>
-    <input id="submitTask"type="submit" value="Submit">
+    <button id="submitTask" type="button">Create</button>
     <input type="reset" value="Reset">
   </form>
 
@@ -54,11 +52,10 @@ $(function(){
         var created = $("#created").val();
         var duration = $("#duration").val();
         var projectID = $("#projectID").val();
-        var developerID = $("#developerID").val();
-        $.post("http://www.centisoft.dk/api/Project/",{Name : name, Description : description, Created : created, Duration : duration, ProjectId : projectID, DeveloperId : developerID})
+        $.post("http://www.centisoft.dk/api/project/tasks/",{Name : name, Description : description, Created : created, Duration : duration, ProjectId : projectID})
         .done(function(data){alert("DONE")});
       })
-    });
+    })
   </script>
 </body>
 

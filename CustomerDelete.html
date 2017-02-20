@@ -19,7 +19,6 @@
         $(function () {
             $("#header").load("Nav.html");
         });
-
     </script>
 </head>
 
@@ -30,21 +29,27 @@
         <h2>Delete Customer</h2>
     </header>
 
-    <label for="id">ID:</label>
-    <input id="id" type="text"></input>
-    <button id="deleteCustomerButton">Delete</button>
- <script>
-        $(document).ready(function(){
-            $("#deleteCustomerButton").click(function(){
-              var id = $("#id").val();
+    <div class="col-xs-offset-0 col-md-offset-3">
+        <div class="col-xs-12 col-sm-12 col-md-8">
+            <label for="id">ID:</label>
+            <input class="form-control" id="id" type="text"></input>
+            <br>
+            <button class="btn btn-danger" id="deleteCustomerButton">Delete</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#deleteCustomerButton").click(function () {
+                var id = $("#id").val();
                 $.ajax({
-                  url: 'http://www.centisoft.dk/api/customer/',
-                  type: "DELETE",
-                  data: {Id: id},
-                  success: function(){alert("done")}
+                    url: 'http://www.centisoft.dk/api/customer/',
+                    type: "DELETE",
+                    data: { Id: id },
+                    success: function () { alert("done") }
                 })
             })
         });
     </script>
 </body>
+
 </html>

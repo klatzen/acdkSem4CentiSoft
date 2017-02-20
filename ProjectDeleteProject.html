@@ -28,22 +28,22 @@
         <h2>Delete Project</h2>
     </header>
     <form>
-        <label>Enter ID:</label><br>
+        <label for="idField">Enter ID:</label><br>
         <input id="idField" type="text" name="ID">
-        <input id="submitField" type="submit" value="Delete"><br>
+        <button id="submitField" type="button">Delete</button><br>
     </form>
 
     <script>
         $(document).ready(function(){
-        $("#submitField").click(function() {
-            var id = $("#idField").val();
-            $.ajax({
-                url: 'http://centisoft.dk/api/Project/',
-                type: "DELETE",
-                data: {Id: id},
-                success: function(){alert("Done")}
+            $("#submitField").click(function(){
+              var id = $("#idField").val();
+                $.ajax({
+                  url: 'http://www.centisoft.dk/api/Project/',
+                  type: "DELETE",
+                  data: {Id: id},
+                  success: function(){alert("done")}
+                })
             })
-        })
         });
     </script>
 

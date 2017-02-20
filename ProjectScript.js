@@ -68,12 +68,3 @@ function updatemessageProject() {
 }
 
 
-function DeleteProject(){
-    var oReq = new XMLHttpRequest();
-    var projId = document.getElementById("id").value;
-    oReq.addEventListener("load", updatemessageProject);
-    oReq.open("DELETE", "http://centisoft.dk/api/Project/" + id);
-    oReq.send();
-}
-
-

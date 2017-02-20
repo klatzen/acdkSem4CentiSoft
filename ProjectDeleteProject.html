@@ -28,20 +28,24 @@
         <h2>Delete Project</h2>
     </header>
     <form>
-        Enter ID:<br>
-        <input type="text" name="ID"><br>
-
-        <input type="submit" value="Submit"><br>
-        <input type="reset" value="Reset"><br>
-
-        <p>
-            <b>Info:</b><br> ID:
-            <br> Name:
-            <br> Due Date:<br> Customer ID:<br>
-        </p>
-
-        <input type="submit" value="Delete"><br>
+        <label>Enter ID:</label><br>
+        <input id="idField" type="text" name="ID">
+        <input id="submitField" type="submit" value="Delete"><br>
     </form>
+
+    <script>
+        $(document).ready(function(){
+        $("#submitField").click(function() {
+            var id = $("#idField").val();
+            $.ajax({
+                url: 'http://centisoft.dk/api/Project/',
+                type: "DELETE",
+                data: {Id: id},
+                success: function(){alert("Done")}
+            })
+        })
+        });
+    </script>
 
 </body>
 

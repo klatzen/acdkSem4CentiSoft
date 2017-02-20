@@ -29,9 +29,7 @@ $(function(){
     <h2>Create Task</h2>
   </header>
 
-  <form onSubmit="">
-    <label for="id">ID:</label>
-    <input id="id" type="text" name="id" required>
+  <form onsubmit="return false;">
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" required>
     <label for="description">Description:</label>
@@ -41,12 +39,27 @@ $(function(){
     <label for="duration">Duration:</label>
     <input id="duration" type="text" name="duration" required>
     <label for="projectID">Project ID:</label>
-    <input id="projetcID" type="text" name="projectID" required>
+    <input id="projectID" type="text" name="projectID" required>
     <label for="developerID">Developer ID:</label>
     <input id="developerID" type="text" name="developerID" required>
-    <input type="submit" value="Submit">
+    <input id="submitTask"type="submit" value="Submit">
     <input type="reset" value="Reset">
   </form>
+
+  <script>
+    $(document).ready(function(){
+      $("#submitTask").click(function(){
+        var name = $("#name").val();
+        var description = $("#description").val();
+        var created = $("#created").val();
+        var duration = $("#duration").val();
+        var projectID = $("#projectID").val();
+        var developerID = $("#developerID").val();
+        $.post("http://www.centisoft.dk/api/Project/",{Name : name, Description : description, Created : created, Duration : duration, ProjectId : projectID, DeveloperId : developerID})
+        .done(function(data){alert("DONE")});
+      })
+    });
+  </script>
 </body>
 
 </html>

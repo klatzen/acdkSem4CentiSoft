@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="CustomerScript.js"></script>
+    <script src="Global.js"></script>
     <title>Centisoft - Time Registration / Customers</title>
     <script>
         $(function () {
@@ -68,7 +69,18 @@
                     $(document).ready(function () {
                         $("#findCustomerSubmit").click(function () {
                             var id = $("#findCustomerIDInput").val();
-                            $.get("http://www.centisoft.dk/api/Customer/", { Id: id }).done(function (data) { showCustomer(data) });
+                            $.get("http://www.centisoft.dk/api/Customer/", { Id: id })
+                            .done(function (data) {
+                            if(data === null){
+                                myAlert("No Customer Found On That Id..", "info");
+                            }else{
+                                myAlert("Customer Found", "success");
+                            }
+                            showCustomer(data);
+                        })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });
                         })
                     })
     </script>

@@ -13,6 +13,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Global.js"> </script>
     <title>Centisoft - Time Registration / Customers</title>
     <script>
         $(function () {
@@ -95,7 +96,8 @@
                                 url: 'http://www.centisoft.dk/api/Customer/',
                                 type: "PUT",
                                 data: { Id: id, Name: name, Address: address, Address2: address2, Zip: zip, City: city, Country: country, Email: email, Phone: phone, ClientID: clientID },
-                                success: function () { alert("done") }
+                                success: function () { myAlert("Customer is successfully updated", "success") },
+                                error: function() { myAlert("There was an error in the request!","danger") }
                             })
                         })
                     });

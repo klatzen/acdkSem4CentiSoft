@@ -1,15 +1,7 @@
-/*function findProjects() {
-    var req = new XMLHttpRequest();
-    req.addEventListener("load", showProjects);
-    req.open("GET", "http://www.centisoft.dk/api/Project");
-    req.send();
-}
-*/
-
-
+// Shows all projects
 function showProjects(data) {
-    //var projectList = JSON.parse(this.responseText);
     var element = document.getElementById("ProjectBody");
+    //var link = '<a href="http://centisoft.dk/Project/">Tasks</a>';
     element.innerHTML ="";
     for(var i = 0; i < data.length; i++) {
             var rowElement = document.createElement("tr");
@@ -22,7 +14,6 @@ function showProjects(data) {
             var secondColumnText = document.createTextNode(data[i].Name);
             var thirdColumnText = document.createTextNode(data[i].DueDate);
             var fourthColumnText = document.createTextNode(data[i].CustomerId);
-            var fifthColumnText = document.createTextNode("Tasks");            
 
             rowElement.appendChild(firstColumn);
             rowElement.appendChild(secondColumn);
@@ -30,27 +21,22 @@ function showProjects(data) {
             rowElement.appendChild(fourthColumn);
             rowElement.appendChild(fifthColumn);
 
+            var link = document.createElement("a");
+            //link.href = "http://centisoft.dk/Project/" + data[i].Id + "/tasks/";
+            link.href = "ProjectShowTask.html";
+            link.textContent = "Tasks";
+            
             firstColumn.appendChild(firstColumnText);
             secondColumn.appendChild(secondColumnText);
             thirdColumn.appendChild(thirdColumnText);
             fourthColumn.appendChild(fourthColumnText);
-            fifthColumn.appendChild(fifthColumnText);
-            fifthColumn.title = "Tasks";
-            var url = "http://www.centisoft.dk/project/" + data[i].Id + "/tasks/";
-            fifthColumn.href = url;
-            document.body.appendChild(fifthColumn);
-            
+            fifthColumn.appendChild(link);
+        
             element.appendChild(rowElement);
     }
 }
 
-function addList(selectbox, text, value){
-    var opt = document.createElement("OPTION");
-    opt.text = text;
-    opt.value = value;
-    selectbox.options.add(opt);
-}
-
+//Shows on project based on ProjectId
 function showOneProject(data){
     var element = document.getElementById("ProjectBody");
     element.innerHTML ="";
@@ -77,6 +63,7 @@ function showOneProject(data){
             element.appendChild(rowElement);
 }
 
+//Shows task based on ProjectId and TaskId
 function showTaskById(data){
     var element = document.getElementById("taskBody");
     element.innerHTML ="";
@@ -112,6 +99,7 @@ function showTaskById(data){
             element.appendChild(rowElement);
 }
 
+//Shows all tasks based on projectId
 function showTasksById(data){
             var element = document.getElementById("taskBody");
             element.innerHTML ="";
@@ -150,8 +138,5 @@ function showTasksById(data){
 }
 
 
-function updatemessageProject() {
-    alert("detvirker");
-}
 
 

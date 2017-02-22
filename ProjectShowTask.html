@@ -62,9 +62,9 @@
             $("#allTasks").click(function(){
                 var projectId = $("#projectIdField").val();
                 var url = "http://centisoft.dk/api/project/" + projectId + "/tasks/";
-                $.get(url).done(function(task){showTasksById(task)});
+                $.get(url).done(function(data){showTasksById(data)});
             })
-        })
+        });
     </script>
     <script src="ProjectScript.js"></script>
 

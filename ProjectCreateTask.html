@@ -69,7 +69,12 @@ $(function(){
         var duration = $("#duration").val();
         var projectID = $("#projectID").val();
         $.post("http://www.centisoft.dk/api/project/tasks/",{Name : name, Description : description, Created : created, Duration : duration, ProjectId : projectID})
-        .done(function(data){alert("DONE")});
+       .done(function () {
+                                myAlert("Task successfully created!", "succes");
+                        })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });
       })
     })
   </script>

@@ -86,7 +86,12 @@
                             var phone = $("#phone").val();
                             var clientID = $("#clientID").val();
                             $.post("http://www.centisoft.dk/api/Customer/", { Name: name, Address: address, Address2: address2, Zip: zip, City: city, Country: country, Email: email, Phone: phone, ClientID: clientID }).done(function (data) { alert("done") });
+                        }).done(function () {
+                                myAlert("Customer successfully created!", "succes");
                         })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });
                     })
     </script>
 </body>

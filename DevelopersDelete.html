@@ -47,7 +47,9 @@
                   url: 'http://www.centisoft.dk/api/developer/',
                   type: "DELETE",
                   data: {Id: id},
-                  success: function(){alert("done")}
+                  success: function () { myAlert("Developer is successfully deleted", "success") },
+                    error: function() { myAlert("There was an error in the request!","danger") }
+                  
                 })
             })
         });

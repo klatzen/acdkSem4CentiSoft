@@ -61,7 +61,8 @@ $(function(){
         url: 'http://www.centisoft.dk/api/Project/',
         type: 'PUT',
         data: {Name : name, DueDate : dueDate},
-        success: function(data){alert("DONE")}
+         success: function () { myAlert("Project is successfully updated", "success") },
+                   error: function() { myAlert("There was an error in the request!","danger") }
       })
     })
 

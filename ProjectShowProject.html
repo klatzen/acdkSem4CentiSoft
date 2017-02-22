@@ -61,7 +61,17 @@ $(function(){
 
     $("#projectSubmit").click(function(){
       var id = $("#idField").val();
-      $.get("http://www.centisoft.dk/api/Project/",{Id : id}).done(function(data){showOneProject(data)});
+      $.get("http://www.centisoft.dk/api/Project/",{Id : id}).done(function (data) {
+                            if(data === null){
+                                myAlert("No Project Found On That Id..", "info");
+                            }else{
+                                myAlert("Project Found", "success");
+                            }
+                            showCustomer(data);
+                        })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });
     })
   })
 

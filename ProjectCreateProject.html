@@ -61,7 +61,12 @@ $(function(){
       var dueDate = $("#dueDate").val();
       var customerID = $("#customerID").val();
       $.post("http://www.centisoft.dk/api/Project/", {Name : name, DueDate : dueDate, CustomerId : customerID})
-      .done(function(data){alert("DONE")});
+     .done(function () {
+                                myAlert("Project successfully created!", "succes");
+                        })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });
     })
   })
   </script>

@@ -45,7 +45,8 @@
                   url: 'http://www.centisoft.dk/api/Project/',
                   type: "DELETE",
                   data: {Id: id},
-                  success: function(){alert("done")}
+                  success: function () { myAlert("Project is successfully deleted", "success") },
+                    error: function() { myAlert("There was an error in the request!","danger") }
                 })
             })
         });

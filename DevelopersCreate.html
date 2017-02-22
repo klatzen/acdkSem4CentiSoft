@@ -51,7 +51,12 @@ $(function(){
             $("#insertDeveloperSubmit").click(function(){
               var name = $("#name").val();
               var email = $("#email").val();
-                $.post("http://www.centisoft.dk/api/developer/", {Name: name, Email: email}).done(function(data){alert("done")});
+                $.post("http://www.centisoft.dk/api/developer/", {Name: name, Email: email}).done(function () {
+                                myAlert("Customer successfully created!", "succes");
+                        })
+                        .fail(function(){
+                            myAlert("There was an error in your request..", "danger");
+                        });});
             })
         })
     </script>

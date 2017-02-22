@@ -61,7 +61,8 @@ $(function(){
                   url: 'http://www.centisoft.dk/api/developer/',
                   type: "PUT",
                   data: {Id: id, Name: name, Email: email},
-                  success: function(){alert("done")}
+                   success: function () { myAlert("Developer is successfully updated", "success") },
+                   error: function() { myAlert("There was an error in the request!","danger") }
                 })
             })
         });

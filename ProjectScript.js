@@ -17,23 +17,38 @@ function showProjects(data) {
             var secondColumn = document.createElement("td");
             var thirdColumn = document.createElement("td");
             var fourthColumn = document.createElement("td");
+            var fifthColumn = document.createElement("td");
             var firstColumnText = document.createTextNode(data[i].Id);
             var secondColumnText = document.createTextNode(data[i].Name);
             var thirdColumnText = document.createTextNode(data[i].DueDate);
             var fourthColumnText = document.createTextNode(data[i].CustomerId);
+            var fifthColumnText = document.createTextNode("Tasks");            
 
             rowElement.appendChild(firstColumn);
             rowElement.appendChild(secondColumn);
             rowElement.appendChild(thirdColumn);
             rowElement.appendChild(fourthColumn);
+            rowElement.appendChild(fifthColumn);
 
             firstColumn.appendChild(firstColumnText);
             secondColumn.appendChild(secondColumnText);
             thirdColumn.appendChild(thirdColumnText);
             fourthColumn.appendChild(fourthColumnText);
+            fifthColumn.appendChild(fifthColumnText);
+            fifthColumn.title = "Tasks";
+            var url = "http://www.centisoft.dk/project/" + data[i].Id + "/tasks/";
+            fifthColumn.href = url;
+            document.body.appendChild(fifthColumn);
             
             element.appendChild(rowElement);
     }
+}
+
+function addList(selectbox, text, value){
+    var opt = document.createElement("OPTION");
+    opt.text = text;
+    opt.value = value;
+    selectbox.options.add(opt);
 }
 
 function showOneProject(data){
@@ -72,6 +87,7 @@ function showTaskById(data){
             var fourthColumn = document.createElement("td");
             var fifthColumn = document.createElement("td");
             var sixthColumn = document.createElement("td");
+            
             var firstColumnText = document.createTextNode(data.Id);
             var secondColumnText = document.createTextNode(data.Name);
             var thirdColumnText = document.createTextNode(data.Description);
@@ -94,6 +110,43 @@ function showTaskById(data){
             sixthColumn.appendChild(sixthColumnText);
             
             element.appendChild(rowElement);
+}
+
+function showTasksById(data){
+            var element = document.getElementById("taskBody");
+            element.innerHTML ="";
+            for(var i = 0; i < data.length; i++){
+                var rowElement = document.createElement("tr");
+                var firstColumn = document.createElement("td");
+                var secondColumn = document.createElement("td");
+                var thirdColumn = document.createElement("td");
+                var fourthColumn = document.createElement("td");
+                var fifthColumn = document.createElement("td");
+                var sixthColumn = document.createElement("td");
+                
+                var firstColumnText = document.createTextNode(data[i].Id);
+                var secondColumnText = document.createTextNode(data[i].Name);
+                var thirdColumnText = document.createTextNode(data[i].Description);
+                var fourthColumnText = document.createTextNode(data[i].Created);
+                var fifthColumnText = document.createTextNode(data[i].Duration);
+                var sixthColumnText = document.createTextNode(data[i].ProjectId);
+
+                rowElement.appendChild(firstColumn);
+                rowElement.appendChild(secondColumn);
+                rowElement.appendChild(thirdColumn);
+                rowElement.appendChild(fourthColumn);
+                rowElement.appendChild(fifthColumn);
+                rowElement.appendChild(sixthColumn);
+
+                firstColumn.appendChild(firstColumnText);
+                secondColumn.appendChild(secondColumnText);
+                thirdColumn.appendChild(thirdColumnText);
+                fourthColumn.appendChild(fourthColumnText);
+                fifthColumn.appendChild(fifthColumnText);
+                sixthColumn.appendChild(sixthColumnText);
+                
+                element.appendChild(rowElement);
+            }
 }
 
 

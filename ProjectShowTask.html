@@ -33,7 +33,8 @@
         <label for="ID">Enter ID:</label>
         <input id="projectIdField" type="text" name="ID" placeholder="Project ID">
         <input id="taskIdField" type="text" name="ID" placeholder="Task ID">
-        <button id="taskSubmit" type="button">Search</button>
+        <input id="taskSubmit" type="submit" value="Submit">
+        <button id="allTasks">Find tasks</button>
     </form>
 
     <table class="taskTable">
@@ -51,21 +52,22 @@
 
     <script>
         $(document).ready(function(){
-            /*$("#taskSubmit").click(function(){
-                var projectId = $("#projectIdField").val();
-                var taskId = $("#taskIdField").val();
-                $.get("http://www.centisoft.dk/api/project/tasks", {ProjectId : projectId, id : taskId}).done(function(data){showTaskById(data)});
-            })*/
-
             $("#taskSubmit").click(function(){
                 var projectId = $("#projectIdField").val();
                 var taskId = $("#taskIdField").val();
-                $.get("http://www.centisoft.dk/api/project/tasks",{Project : projectId, id : taskId}).done(function(data){showTaskById(data)});
+                var url = "http://centisoft.dk/api/project/" + projectId + "/tasks/" + taskId;
+                $.get(url).done(function(data){showTaskById(data)});
+            })
+
+            $("#allTasks").click(function(){
+                var projectId = $("#projectIdField").val();
+                var url = "http://centisoft.dk/api/project/" + projectId + "/tasks/";
+                $.get(url).done(function(task){showTasksById(task)});
             })
         })
     </script>
-
     <script src="ProjectScript.js"></script>
+
 
 
 

@@ -23,9 +23,8 @@ function showProjects(data) {
 
             var link = document.createElement("a");
             //link.href = "http://centisoft.dk/Project/" + data[i].Id + "/tasks/";
-            link.href = "ProjectShowTask.html";
+            link.href = "ProjectShowTask.html?id="+data[i].Id;
             link.textContent = "Tasks";
-            
             firstColumn.appendChild(firstColumnText);
             secondColumn.appendChild(secondColumnText);
             thirdColumn.appendChild(thirdColumnText);
